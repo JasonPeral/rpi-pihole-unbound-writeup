@@ -56,14 +56,14 @@ echo "🔹 Configuring UFW firewall rules..."
 sudo ufw default deny incoming
 sudo ufw default allow outgoing
 
-# Allow local network access (replace 192.168.2.0/24 if needed)
-sudo ufw allow from 192.168.2.0/24 to any port 22 proto tcp
-sudo ufw allow from 192.168.2.0/24 to any port 53 proto tcp
-sudo ufw allow from 192.168.2.0/24 to any port 53 proto udp
-sudo ufw allow from 192.168.2.0/24 to any port 67 proto udp
-sudo ufw allow from 192.168.2.0/24 to any port 68 proto udp
-sudo ufw allow from 192.168.2.0/24 to any port 80 proto tcp
-sudo ufw allow from 192.168.2.0/24 to any port 443 proto tcp
+# Allow local network access (replace 192.x.x.x/24 if needed)
+sudo ufw allow from 192.x.x.x/24 to any port 22 proto tcp
+sudo ufw allow from 192.x.x.x/24 to any port 53 proto tcp
+sudo ufw allow from 192.x.x.x/24 to any port 53 proto udp
+sudo ufw allow from 192.x.x.x/24 to any port 67 proto udp
+sudo ufw allow from 192.x.x.x/24 to any port 68 proto udp
+sudo ufw allow from 192.x.x.x/24 to any port 80 proto tcp
+sudo ufw allow from 192.x.x.x/24 to any port 443 proto tcp
 
 # Enable firewall
 sudo ufw enable
