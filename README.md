@@ -275,11 +275,12 @@ dig +dnssec dnssec-failed.org @127.0.0.1 -p 5335
 
 ```mermaid
 flowchart LR
-    A[Client Device\n(Phone, PC, IoT)] -->|DNS Query| B[Pi-hole\n(Raspberry Pi 4)]
+
+    A[Client Device Phone, PC, IoT] -->|DNS Query| B[Pi-hole Raspberry Pi 4]
     B -->|Filtered / Blocked Domains| X[Blocked 🚫]
     B -->|Allowed Domains| C[Unbound\nRecursive Resolver]
     C --> D[Root DNS Servers]
-    D --> E[TLD DNS Servers\n(.com, .net, .org)]
+    D --> E[TLD DNS Servers\n .com, .net, .org]
     E --> F[Authoritative DNS Servers]
     F -->|Final IP Address| C
     C --> B
