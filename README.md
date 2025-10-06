@@ -271,3 +271,16 @@ dig +dnssec dnssec-failed.org @127.0.0.1 -p 5335
 - Bell Giga Hub no longer interferes (DHCP moved to Pi-hole).
 - DNS queries are filtered (ad/tracker blocking) and resolved securely via Unbound.
 - System is hardened with UFW firewall, static IP, updates, and strong access controls.
+
+
+```mermaid
+flowchart LR
+    A[Client Device\n(Phone, PC, IoT)] -->|DNS Query| B[Pi-hole\n(Raspberry Pi 4)]
+    B -->|Filtered / Blocked Domains| X[Blocked 🚫]
+    B -->|Allowed Domains| C[Unbound\nRecursive Resolver]
+    C --> D[Root DNS Servers]
+    D --> E[TLD DNS Servers\n(.com, .net, .org)]
+    E --> F[Authoritative DNS Servers]
+    F -->|Final IP Address| C
+    C --> B
+    B -->|Response| A
